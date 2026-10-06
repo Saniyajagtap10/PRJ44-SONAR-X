@@ -103,12 +103,13 @@ def load_json(path):
 @st.cache_resource(show_spinner=False)
 def load_model():
     if not MODEL_PATH.exists():
-        return None
+        raise FileNotFoundError(f"Model file not found: {MODEL_PATH}")
+
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = SonarDeconvCNN()
-    ckpt = torch.load(MODEL_PATH, map_location=device)
 
-    # train.py saves a RAW state_dict, but this also accepts common checkpoint wrappers.
+    ckpt = torch.load(MODEL_PATH, map_location=device, weights_only=True)
+
     if isinstance(ckpt, dict):
         if "model_state" in ckpt:
             state_dict = ckpt["model_state"]
@@ -122,12 +123,16 @@ def load_model():
         state_dict = ckpt
 
     if any(k.startswith("module.") for k in state_dict.keys()):
-        state_dict = {k.replace("module.", "", 1): v for k, v in state_dict.items()}
+        state_dict = {
+            k.replace("module.", "", 1): v
+            for k, v in state_dict.items()
+        }
 
     model.load_state_dict(state_dict, strict=True)
-    model.to(device).eval()
-    return model, device
+    model.to(device)
+    model.eval()
 
+    return model, device
 
 def preprocess(img):
     im = img.convert("L").resize((128, 128), Image.Resampling.BILINEAR)
