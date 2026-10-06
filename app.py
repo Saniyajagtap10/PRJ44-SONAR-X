@@ -159,7 +159,7 @@ try:
 except Exception as e:
     loaded = None
     load_error = str(e)
-
+st.error(f"MODEL ERROR: {load_error}")
 # ---------- Sidebar ----------
 with st.sidebar:
     st.markdown('<div class="brand"><span class="brand-mark">◈</span><div class="brand-title"><b>SONAR-X</b><span>PRJ-44 RESEARCH ENGINE</span></div></div>', unsafe_allow_html=True)
