@@ -1,0 +1,46 @@
+{
+  "baseline": {
+    "accuracy": 0.7142857142857143,
+    "precision": 0.5102040816326531,
+    "recall": 0.7142857142857143,
+    "f1": 0.5952380952380952,
+    "test_samples": 28,
+    "confusion_matrix": [
+      [
+        20,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ]
+  },
+  "proposed": {
+    "accuracy": 0.7142857142857143,
+    "precision": 0.5102040816326531,
+    "recall": 0.7142857142857143,
+    "f1": 0.5952380952380952,
+    "loss": 0.7268137633800507,
+    "snr_before_db": 7.338711738586426,
+    "snr_after_db": -4.063167095184326,
+    "snr_improvement_db": -11.401878356933594,
+    "test_samples": 28,
+    "confusion_matrix": [
+      [
+        20,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "device": "cpu",
+    "best_val_accuracy": 0.6956521739130435,
+    "model": "DeconvFeatureDenoisingCNN",
+    "reconstruction_weight": 0.7
+  },
+  "accuracy_gain": 0.0,
+  "f1_gain": 0.0
+}

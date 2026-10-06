@@ -1,0 +1,8 @@
+{
+  "total": 140,
+  "train": 98,
+  "validation": 21,
+  "test": 21,
+  "test_samples": 21,
+  "note": "The completed training log confirms a 21-sample held-out test split. The class totals were not recorded in the available log, so class counts are intentionally not fabricated."
+}
