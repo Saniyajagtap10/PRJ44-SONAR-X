@@ -13,13 +13,12 @@ from dataset_utils import find_dataset_roots, collect_samples, summarize
 
 st.set_page_config(page_title="PRJ-44 | SONAR-X", page_icon="◈", layout="wide", initial_sidebar_state="expanded")
 
-BASE = Path(__file__).parent
-MODEL_PATH = BASE / "models" / "sonar_prj44.pth"
-METRICS = BASE / "results" / "metrics.json"
-SUMMARY = BASE / "results" / "dataset_summary.json"
-HISTORY = BASE / "results" / "history.json"
-CM_PATH = BASE / "results" / "confusion_matrix.png"
-LOSS_PATH = BASE / "results" / "training_loss.png"
+MODEL_PATH = BASE / "sonar_prj44.pth"
+METRICS = BASE / "metrics.json"
+SUMMARY = BASE / "dataset_summary.json"
+HISTORY = BASE / "history.json"
+CM_PATH = BASE / "confusion_matrix.png"
+LOSS_PATH = BASE / "training_loss.png"
 
 # ---------- Styling ----------
 st.markdown("""
