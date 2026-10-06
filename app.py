@@ -11,7 +11,14 @@ import matplotlib.pyplot as plt
 from model import SonarDeconvCNN
 from dataset_utils import find_dataset_roots, collect_samples, summarize
 
-st.set_page_config(page_title="PRJ-44 | SONAR-X", page_icon="◈", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(
+    page_title="PRJ-44 | SONAR-X",
+    page_icon="◈",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+BASE = Path(__file__).parent
 
 MODEL_PATH = BASE / "sonar_prj44.pth"
 METRICS = BASE / "metrics.json"
